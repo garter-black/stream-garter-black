@@ -1,0 +1,66 @@
+# stream.garter.black · SOURCE OF TRUTH REPO ───────────────────────────────────
+# This repo holds SOURCE ONLY. Cloudflare Pages output is not committed: for a
+# static single-page site the committed index.html IS the publishable tree, and
+# the Pages dashboard uploads it. dist/ exists only if a build step is added.
+# ───────────────────────────────────────────────────────────────────────────────
+
+# Build output / deploy staging. Never hand-edit, never commit.
+dist/
+output/
+public/
+
+# Runtime + local dev state
+.wrangler/
+__pycache__/
+*.pyc
+node_modules/
+
+# Secrets. Local dev values live in .dev.vars only; production values live in
+# Cloudflare as `wrangler pages secret`.
+.env
+.env.*
+.dev.vars
+
+# Screenshots and generated evidence
+shots/
+
+# ── ALL MEDIA ──────────────────────────────────────────────────────────────────
+# git is not a media host (SOURCE-OF-TRUTH-PLAN.md §1). Extension-matched so a
+# drag-in of an assets folder cannot commit images, video, audio or fonts.
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.avif
+*.bmp
+*.tiff
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mkv
+*.avi
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.svg
+*.ico
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# Downloadable documents are media too: authored elsewhere, served from R2.
+*.pdf
+
+# Roster / customer data never enters git: real names, ages, IDs, contacts.
+*roster*.json
+*ladies*.json
+*roster*.csv
+*ladies*.csv
+data/**/roster*.json
+data/**/ladies*.json
